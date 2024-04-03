@@ -45,8 +45,8 @@ declare module '$env/static/private' {
 	export const TMUX_PLUGIN_MANAGER_PATH: string;
 	export const COLOR: string;
 	export const npm_config_local_prefix: string;
-	export const npm_config_globalconfig: string;
 	export const XCURSOR_SIZE: string;
+	export const npm_config_globalconfig: string;
 	export const EDITOR: string;
 	export const XDG_SEAT: string;
 	export const PWD: string;
@@ -54,7 +54,6 @@ declare module '$env/static/private' {
 	export const XDG_SESSION_TYPE: string;
 	export const npm_config_init_module: string;
 	export const SYSTEMD_EXEC_PID: string;
-	export const _: string;
 	export const MOTD_SHOWN: string;
 	export const HOME: string;
 	export const LANG: string;
@@ -87,6 +86,7 @@ declare module '$env/static/private' {
 	export const npm_config_user_agent: string;
 	export const npm_execpath: string;
 	export const XDG_RUNTIME_DIR: string;
+	export const NODE_PATH: string;
 	export const DEBUGINFOD_URLS: string;
 	export const npm_package_json: string;
 	export const npm_config_noproxy: string;
@@ -154,8 +154,8 @@ declare module '$env/dynamic/private' {
 		TMUX_PLUGIN_MANAGER_PATH: string;
 		COLOR: string;
 		npm_config_local_prefix: string;
-		npm_config_globalconfig: string;
 		XCURSOR_SIZE: string;
+		npm_config_globalconfig: string;
 		EDITOR: string;
 		XDG_SEAT: string;
 		PWD: string;
@@ -163,7 +163,6 @@ declare module '$env/dynamic/private' {
 		XDG_SESSION_TYPE: string;
 		npm_config_init_module: string;
 		SYSTEMD_EXEC_PID: string;
-		_: string;
 		MOTD_SHOWN: string;
 		HOME: string;
 		LANG: string;
@@ -196,6 +195,7 @@ declare module '$env/dynamic/private' {
 		npm_config_user_agent: string;
 		npm_execpath: string;
 		XDG_RUNTIME_DIR: string;
+		NODE_PATH: string;
 		DEBUGINFOD_URLS: string;
 		npm_package_json: string;
 		npm_config_noproxy: string;
