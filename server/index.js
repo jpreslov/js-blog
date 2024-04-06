@@ -1,8 +1,6 @@
-require('dotenv').config();
-
-const express = require('express');
-const cors = require('cors');
-const db = require('./db');
+import express from 'express';
+import cors from 'cors';
+import query from './db.js';
 
 const app = express();
 app.use(express.json());
@@ -10,7 +8,7 @@ app.use(cors());
 
 app.get('/user', async (req, res) => {
   try {
-    const result = await db.query(`SELECT * FROM "user"`);
+    const result = await query(`SELECT * FROM "user"`);
     res.json(result.rows);
   } catch (err) {
     console.error(err);
@@ -21,7 +19,7 @@ app.get('/user', async (req, res) => {
 app.get('/user/:id', async (req, res) => {
   try {
     const id = req.params.id;
-    const result = await db.query(`SELECT * FROM "user" WHERE id = ${id}`);
+    const result = await query(`SELECT * FROM "user" WHERE id = ${id}`);
     res.json(result.rows);
   } catch (err) {
     console.error(err);
@@ -32,7 +30,7 @@ app.get('/user/:id', async (req, res) => {
 app.post('/user', async (req, res) => {
   try {
     const username = req.body.username;
-    const result = await db.query(`INSERT INTO "user" (username) VALUES ('${username}')`)
+    const result = await query(`INSERT INTO "user" (username) VALUES ('${username}')`)
     res.json(result);
   } catch (err) {
     console.error(err);
@@ -42,7 +40,7 @@ app.post('/user', async (req, res) => {
 
 app.get('/post', async (req, res) => {
   try {
-    const result = await db.query('SELECT * FROM post');
+    const result = await query('SELECT * FROM post');
     res.json(result.rows);
   } catch (err) {
     console.error(err);
