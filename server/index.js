@@ -2,6 +2,8 @@ import express from 'express';
 import session from 'express-session';
 import cors from 'cors';
 import query from './db.js';
+import { requireAuth } from './auth.js';
+import axios from 'axios';
 
 const app = express();
 app.use(express.json());
@@ -14,22 +16,25 @@ app.use(session({
   cookie: { secure: true }
 }));
 
-const requireAuth = (req, res, next) => {
-  if (req.session.userId) {
-    next();
-  } else {
-    res.redirect('/login');
-  }
-}
+const api = axios.create({
+  baseURL: 'http://localhost:3000',
+});
 
-app.post('/login', (req, res) => {
-  const { username, password } = req.body;
+app.post('/login', async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const data = await api.get(`/user/${username}`);
+    const user = data.data[0];
 
-  if (user && user.password === password) {
-    req.session.userId = userId;
-    res.redirect('/');
-  } else {
-    res.render('login', { error: 'Invalid username or password' });
+    if (user && user.password == password) {
+      req.session.userId = userId;
+      res.redirect('/');
+    } else {
+      res.render('login', { error: 'Invalid username or password' });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal server error');
   }
 });
 
@@ -42,7 +47,7 @@ app.get('/user/:username', async (req, res) => {
     console.error(err);
     res.status(500).send('Internal server error');
   }
-})
+});
 
 app.get('/user', async (req, res) => {
   try {
@@ -63,7 +68,7 @@ app.get('/user/:id', requireAuth, async (req, res) => {
     console.error(err);
     res.status(500).send('Internal server error');
   }
-})
+});
 
 app.post('/user', async (req, res) => {
   try {
@@ -74,7 +79,7 @@ app.post('/user', async (req, res) => {
     console.error(err);
     res.status(500).send('Internal server error');
   }
-})
+});
 
 app.put('/user/:id', async (req, res) => {
   try {
