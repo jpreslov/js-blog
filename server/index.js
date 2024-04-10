@@ -3,6 +3,16 @@ import session from 'express-session';
 import cors from 'cors';
 import query from './db.js';
 import passport from 'passport';
+import Strategy from 'passport-github2'
+
+passport.use(new Strategy({
+  clientID: process.env.GITHUB_CLIENT_ID,
+  clientSecret: process.env.GITHUB_CLIENT_SECRET,
+  callbackURL: '/auth/gh/redirect'
+},
+  function(accessToken, refreshToken, profile, done) {
+    return done(null, profile);
+  }));
 
 const app = express();
 app.use(express.json());
@@ -12,11 +22,17 @@ app.use(session({
   secret: 'really-secret-shit',
   resave: false,
   saveUninitialized: false,
-}))
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/auth/gh', passport.authenticate('github'));
+app.get('/auth/gh', passport.authenticate('github', { scope: ['user:email'] }));
+app.get('/auth/gh/redirect', () => {
+  passport.authenticate('github', { failureRedirect: '/login' }),
+    (req, res) => {
+      res.redirect('/');
+    }
+});
 
 app.get('/user/:username', async (req, res) => {
   try {
