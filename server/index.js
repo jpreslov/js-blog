@@ -16,13 +16,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(session({
-  secret: 'my-secret-key',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true }
-}));
-
 app.get('/auth/gh', passport.authenticate('github'));
 
 app.get('/user/:username', async (req, res) => {
