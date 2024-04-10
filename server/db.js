@@ -2,14 +2,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 import pg from 'pg';
 const { Pool } = pg;
+import bcrypt from 'bcrypt';
 
-const pool = new Pool({
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  host: process.env.HOST,
-  database: process.env.DB_NAME,
-  connectionTimeoutMillis: 2000,
-});
+const connectionString = `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.HOST}/${process.env.DB_NAME}`
+
+const pool = new Pool({ connectionString })
 
 const query = (text, params) => pool.query(text, params);
 

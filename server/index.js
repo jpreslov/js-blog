@@ -2,12 +2,19 @@ import express from 'express';
 import session from 'express-session';
 import cors from 'cors';
 import query from './db.js';
-import { requireAuth } from './auth.js';
-import axios from 'axios';
+import passport from 'passport';
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+app.use(session({
+  secret: 'really-secret-shit',
+  resave: false,
+  saveUninitialized: false,
+}))
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(session({
   secret: 'my-secret-key',
@@ -16,27 +23,7 @@ app.use(session({
   cookie: { secure: true }
 }));
 
-const api = axios.create({
-  baseURL: 'http://localhost:3000',
-});
-
-app.post('/login', async (req, res) => {
-  try {
-    const { username, password } = req.body;
-    const data = await api.get(`/user/${username}`);
-    const user = data.data[0];
-
-    if (user && user.password == password) {
-      req.session.userId = userId;
-      res.redirect('/');
-    } else {
-      res.render('login', { error: 'Invalid username or password' });
-    }
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Internal server error');
-  }
-});
+app.get('/auth/gh', passport.authenticate('github'));
 
 app.get('/user/:username', async (req, res) => {
   try {
@@ -59,7 +46,7 @@ app.get('/user', async (req, res) => {
   }
 });
 
-app.get('/user/:id', requireAuth, async (req, res) => {
+app.get('/user/:id', async (req, res) => {
   try {
     const id = req.params.id;
     const result = await query(`SELECT * FROM "user" WHERE id = ${id}`);
@@ -73,7 +60,7 @@ app.get('/user/:id', requireAuth, async (req, res) => {
 app.post('/user', async (req, res) => {
   try {
     const { username } = req.body;
-    const result = await query(`INSERT INTO "user" (username) VALUES ('${username}')`)
+    const result = await query(`INSERT INTO "user" (username, password) VALUES ('${username}')`);
     res.json(result);
   } catch (err) {
     console.error(err);
