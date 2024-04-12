@@ -2,18 +2,6 @@ import express from 'express';
 import session from 'express-session';
 import cors from 'cors';
 import query from './db.js';
-import passport from 'passport';
-import Strategy from 'passport-github2'
-
-passport.use(new Strategy({
-  clientID: process.env.GITHUB_CLIENT_ID,
-  clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  callbackURL: '/auth/gh/redirect'
-},
-  function(accessToken, refreshToken, profile, done) {
-    return done(null, profile);
-  }));
-
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -23,16 +11,6 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
 }));
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.get('/auth/gh', passport.authenticate('github', { scope: ['user:email'] }));
-app.get('/auth/gh/redirect', () => {
-  passport.authenticate('github', { failureRedirect: '/login' }),
-    (req, res) => {
-      res.redirect('/');
-    }
-});
 
 app.get('/user/:username', async (req, res) => {
   try {
@@ -69,7 +47,7 @@ app.get('/user/:id', async (req, res) => {
 app.post('/user', async (req, res) => {
   try {
     const { username } = req.body;
-    const result = await query(`INSERT INTO "user" (username, password) VALUES ('${username}')`);
+    const result = await query(`INSERT INTO "user" (username, password) VALUES ('${username}', ${password})`);
     res.json(result);
   } catch (err) {
     console.error(err);

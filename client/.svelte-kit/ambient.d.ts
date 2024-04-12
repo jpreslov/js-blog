@@ -26,9 +26,6 @@
  * ```
  */
 declare module '$env/static/private' {
-	export const GOOGLE_CLIENT_ID: string;
-	export const GOOGLE_CLIENT_SECRET: string;
-	export const AUTH_SECRET: string;
 	export const SHELL: string;
 	export const npm_command: string;
 	export const WINDOWID: string;
@@ -45,8 +42,8 @@ declare module '$env/static/private' {
 	export const TMUX_PLUGIN_MANAGER_PATH: string;
 	export const COLOR: string;
 	export const npm_config_local_prefix: string;
-	export const XCURSOR_SIZE: string;
 	export const npm_config_globalconfig: string;
+	export const XCURSOR_SIZE: string;
 	export const EDITOR: string;
 	export const XDG_SEAT: string;
 	export const PWD: string;
@@ -54,6 +51,7 @@ declare module '$env/static/private' {
 	export const XDG_SESSION_TYPE: string;
 	export const npm_config_init_module: string;
 	export const SYSTEMD_EXEC_PID: string;
+	export const _: string;
 	export const MOTD_SHOWN: string;
 	export const HOME: string;
 	export const LANG: string;
@@ -86,7 +84,6 @@ declare module '$env/static/private' {
 	export const npm_config_user_agent: string;
 	export const npm_execpath: string;
 	export const XDG_RUNTIME_DIR: string;
-	export const NODE_PATH: string;
 	export const DEBUGINFOD_URLS: string;
 	export const npm_package_json: string;
 	export const npm_config_noproxy: string;
@@ -135,9 +132,6 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
-		GOOGLE_CLIENT_ID: string;
-		GOOGLE_CLIENT_SECRET: string;
-		AUTH_SECRET: string;
 		SHELL: string;
 		npm_command: string;
 		WINDOWID: string;
@@ -154,8 +148,8 @@ declare module '$env/dynamic/private' {
 		TMUX_PLUGIN_MANAGER_PATH: string;
 		COLOR: string;
 		npm_config_local_prefix: string;
-		XCURSOR_SIZE: string;
 		npm_config_globalconfig: string;
+		XCURSOR_SIZE: string;
 		EDITOR: string;
 		XDG_SEAT: string;
 		PWD: string;
@@ -163,6 +157,7 @@ declare module '$env/dynamic/private' {
 		XDG_SESSION_TYPE: string;
 		npm_config_init_module: string;
 		SYSTEMD_EXEC_PID: string;
+		_: string;
 		MOTD_SHOWN: string;
 		HOME: string;
 		LANG: string;
@@ -195,7 +190,6 @@ declare module '$env/dynamic/private' {
 		npm_config_user_agent: string;
 		npm_execpath: string;
 		XDG_RUNTIME_DIR: string;
-		NODE_PATH: string;
 		DEBUGINFOD_URLS: string;
 		npm_package_json: string;
 		npm_config_noproxy: string;
