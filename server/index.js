@@ -36,7 +36,7 @@ app.get('/user', async (req, res) => {
 app.get('/user/:id', async (req, res) => {
   try {
     const id = req.params.id;
-    const result = await query(`SELECT * FROM "user" WHERE id = ${id}`);
+    const result = await query('SELECT * FROM "user" WHERE id = $1', [id]);
     res.json(result.rows);
   } catch (err) {
     console.error(err);
@@ -47,7 +47,7 @@ app.get('/user/:id', async (req, res) => {
 app.post('/user', async (req, res) => {
   try {
     const { username } = req.body;
-    const result = await query(`INSERT INTO "user" (username, password) VALUES ('${username}', ${password})`);
+    const result = await query(`INSERT INTO "user" (username, password) VALUES ($1, $2)`, [username, password]);
     res.json(result);
   } catch (err) {
     console.error(err);
@@ -75,6 +75,18 @@ app.put('/user/:id', async (req, res) => {
 app.get('/post', async (req, res) => {
   try {
     const result = await query('SELECT * FROM post');
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal server error');
+  }
+});
+
+app.get('/post/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const result = await query('SELECT * FROM post WHERE id = $1', [id]);
     res.json(result.rows);
   } catch (err) {
     console.error(err);
