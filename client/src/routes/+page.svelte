@@ -1,8 +1,8 @@
 <script>
+	import { signIn, signOut } from '@auth/sveltekit/client';
 </script>
 
-<main>
-	<div>
-		<h1>Home</h1>
-	</div>
-</main>
+<nav>
+	<button on:click={() => signIn('github')}> Sign In </button>
+	<button on:click={() => signOut()}> Sign Out </button>
+</nav>
