@@ -1,6 +1,7 @@
 {
   "type": "module",
   "dependencies": {
+    "@auth/pg-adapter": "^0.8.0",
     "@lucia-auth/adapter-postgresql": "^3.1.2",
     "argon2": "^0.40.1",
     "axios": "^1.6.8",

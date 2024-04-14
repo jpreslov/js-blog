@@ -29,6 +29,10 @@ declare module '$env/static/private' {
 	export const AUTH_SECRET: string;
 	export const GITHUB_SECRET: string;
 	export const GITHUB_ID: string;
+	export const DB_NAME: string;
+	export const DB_HOST: string;
+	export const DB_USER: string;
+	export const DB_PASSWORD: string;
 	export const SHELL: string;
 	export const npm_command: string;
 	export const WINDOWID: string;
@@ -138,6 +142,10 @@ declare module '$env/dynamic/private' {
 		AUTH_SECRET: string;
 		GITHUB_SECRET: string;
 		GITHUB_ID: string;
+		DB_NAME: string;
+		DB_HOST: string;
+		DB_USER: string;
+		DB_PASSWORD: string;
 		SHELL: string;
 		npm_command: string;
 		WINDOWID: string;
