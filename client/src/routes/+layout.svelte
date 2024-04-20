@@ -31,12 +31,6 @@
 		border-radius: 10px;
 	}
 
-	#login-card {
-		display: flex;
-		justify-content: center;
-		flex-direction: column;
-	}
-
 	button {
 		font-size: 14px;
 		padding: 5px;
