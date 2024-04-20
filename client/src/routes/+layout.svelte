@@ -8,7 +8,7 @@
 	<div id="container">
 		<div id="login-text">
 			{#if session}
-				<p>You are logged in as {session.user.email}</p>
+				<p>{session.user.email}</p>
 				<button on:click={() => signOut()}> Sign Out </button>
 			{:else}
 				<p>You are not logged in</p>
@@ -18,13 +18,17 @@
 	</div>
 </nav>
 
-<main></main>
+<main>
+	<slot />
+</main>
 
 <style>
 	#container {
 		display: flex;
 		justify-content: center;
 		flex-direction: row;
+		border: 2px solid grey;
+		border-radius: 10px;
 	}
 
 	#login-card {
