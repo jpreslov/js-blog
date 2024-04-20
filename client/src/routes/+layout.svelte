@@ -8,7 +8,7 @@
 	<div id="container">
 		<div id="login-text">
 			{#if session}
-				<p>{session.user.email}</p>
+				<p>{session.user.name}</p>
 				<button on:click={() => signOut()}> Sign Out </button>
 			{:else}
 				<p>You are not logged in</p>

@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+  import { getUsers } from '$lib/client/db';
 
 	let users = [];
 
@@ -13,7 +14,7 @@
 		<h1>Users</h1>
 		<ul>
 			{#each users as user}
-				<li>{user.username}</li>
+				<li>{user.name}</li>
 			{/each}
 		</ul>
 	</div>

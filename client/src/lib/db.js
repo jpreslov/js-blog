@@ -1,17 +1,6 @@
-import pg from 'pg';
-const { Pool } = pg;
-
-const pool = new Pool({
-	database: process.env.DB_NAME,
-	user: process.env.DB_USER,
-	host: process.env.DB_HOST,
-	port: process.env.DB_PORT
-});
-
-export const query = async (text, params) => {
-	const start = Date.now();
-	const res = await pool.query(text, params);
-	const duration = Date.now() - start;
-	console.log('executed query', { text: duration, rows: res.rowCount });
-	return res;
-};
+// src/lib/db.js
+export async function getUsers() {
+  const response = await fetch('/api/users/')
+  const users = response.json();
+  return users;
+}
