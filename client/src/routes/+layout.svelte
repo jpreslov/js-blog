@@ -10,8 +10,8 @@
 			{#if session}
 				<p>{session.user.name}</p>
 				<button on:click={() => signOut()}> Sign Out </button>
+				<button><a href="/compose"> New post </a></button>
 			{:else}
-				<p>You are not logged in</p>
 				<button on:click={() => signIn('github')}> Sign In </button>
 			{/if}
 		</div>
