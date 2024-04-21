@@ -14,5 +14,5 @@ const pool = new Pool({
 
 export const { handler, signIn, signOut } = SvelteKitAuth({
   adapter: PostgresAdapter(pool),
-  providers: ['github'],
-})
+  providers: [GitHub({ clientId: GITHUB_ID, clientSecret: GITHUB_SECRET })],
+});

@@ -1,6 +1,5 @@
 export const load = async (event) => {
-  console.log('SESSION: \n');
-  console.log(event.locals.getSession());
+	let session = await event.locals.auth();
 
 	return {
 		session: await event.locals.getSession()
