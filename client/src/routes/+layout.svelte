@@ -1,39 +1,40 @@
 <script>
+	import './app.css';
 	import { signIn, signOut } from '@auth/sveltekit/client';
 	export let data;
 	$: session = data.session;
 </script>
 
-<nav>
-	<div id="container">
-		<div id="login-text">
+<nav class="bg-slate-400">
+	<div class="display-row flex justify-end">
+		<div class="flex-column h-100 my-2 flex">
 			{#if session}
-				<p>{session.user.name}</p>
-				<button on:click={() => signOut()}> Sign Out </button>
-				<button><a href="/compose"> New post </a></button>
+				<button
+					class="mx-4 h-10 rounded-full bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+					><a href="/compose"> New post </a></button
+				>
+				<img class="mx-4 h-14 rounded-full" src={session.user.image} alt="profile pic" />
+				<button
+					class="mx-4 h-10 rounded-full bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+					on:click={() => signOut()}
+				>
+					Sign Out
+				</button>
 			{:else}
-				<button on:click={() => signIn('github')}> Sign In </button>
+				<button
+					class="mx-4 h-10 rounded-full bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+					on:click={() => signIn('github')}
+				>
+					Sign In
+				</button>
 			{/if}
 		</div>
 	</div>
 </nav>
 
 <main>
-	<slot />
+	<slot></slot>
 </main>
 
 <style>
-	#container {
-		display: flex;
-		justify-content: center;
-		flex-direction: row;
-		border: 2px solid grey;
-		border-radius: 10px;
-	}
-
-	button {
-		font-size: 14px;
-		padding: 5px;
-		margin: 7px;
-	}
 </style>

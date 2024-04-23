@@ -1,1 +1,2 @@
-<h1>Hey</h1>
+<h1 class='flex flex-row justify-center'>Hey</h1>
+

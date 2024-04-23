@@ -44,13 +44,11 @@ declare module '$env/static/private' {
 	export const XDG_BACKEND: string;
 	export const TMUX: string;
 	export const NODE: string;
-	export const SSH_AUTH_SOCK: string;
 	export const CREDENTIALS_DIRECTORY: string;
 	export const MEMORY_PRESSURE_WRITE: string;
 	export const TMUX_PLUGIN_MANAGER_PATH: string;
 	export const COLOR: string;
 	export const npm_config_local_prefix: string;
-	export const SSH_AGENT_PID: string;
 	export const npm_config_globalconfig: string;
 	export const XCURSOR_SIZE: string;
 	export const EDITOR: string;
@@ -159,13 +157,11 @@ declare module '$env/dynamic/private' {
 		XDG_BACKEND: string;
 		TMUX: string;
 		NODE: string;
-		SSH_AUTH_SOCK: string;
 		CREDENTIALS_DIRECTORY: string;
 		MEMORY_PRESSURE_WRITE: string;
 		TMUX_PLUGIN_MANAGER_PATH: string;
 		COLOR: string;
 		npm_config_local_prefix: string;
-		SSH_AGENT_PID: string;
 		npm_config_globalconfig: string;
 		XCURSOR_SIZE: string;
 		EDITOR: string;

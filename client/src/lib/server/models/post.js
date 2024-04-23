@@ -1,7 +1,11 @@
 import { pool } from '$lib/server/db';
 
 export async function getPosts() {
-	const { rows } = await pool.query('SELECT * FROM post;');
+	const { rows } = await pool.query(`
+    SELECT * FROM post
+    JOIN users ON post.userid = users.id
+  `);
+  console.log(rows);
 	return rows;
 }
 
