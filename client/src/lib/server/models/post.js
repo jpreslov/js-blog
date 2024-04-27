@@ -21,3 +21,18 @@ export async function createPost(userId, content) {
 		throw err;
 	}
 }
+
+export async function deletePost(postId) {
+  try {
+    const data = await pool.query(
+      `DELETE FROM post WHERE id = $1`, [postId]
+    );
+    
+    if (data) {
+      console.log(data);
+    }
+  } catch (err) {
+    console.error('Error deleting post:', err);
+    throw err;
+  }
+}

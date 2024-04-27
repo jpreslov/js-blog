@@ -1,8 +1,15 @@
 <script>
 	import './app.css';
 	import { signIn, signOut } from '@auth/sveltekit/client';
+  import { goto } from '$app/navigation';
+  import { onMount } from 'svelte';
+
 	export let data;
 	$: session = data.session;
+
+  onMount(() => {
+    goto('/posts');
+  });
 </script>
 
 <nav class="bg-slate-400">
@@ -27,6 +34,7 @@
 				>
 					Sign In
 				</button>
+
 			{/if}
 		</div>
 	</div>

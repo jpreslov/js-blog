@@ -4,7 +4,12 @@ import adapter from '@sveltejs/adapter-node';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+    vite: {
+      server: {
+        port: 5174
+      }
+    }
 	},
 
 	package: {
