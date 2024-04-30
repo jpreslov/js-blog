@@ -1,8 +1,9 @@
 import { SvelteKitAuth } from '@auth/sveltekit';
 import GitHub from '@auth/sveltekit/providers/github';
+import Google from '@auth/sveltekit/providers/google';
+
 import PostgresAdapter from '@auth/pg-adapter';
-import pkg from 'pg';
-const { Pool } = pkg;
+import pkg from 'pg'; const { Pool } = pkg;
 
 import {
   GITHUB_ID,
@@ -27,5 +28,8 @@ export { pool };
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   adapter: PostgresAdapter(pool),
-  providers: [GitHub({ clientId: GITHUB_ID, clientSecret: GITHUB_SECRET })],
+  providers: [
+    GitHub({ clientId: GITHUB_ID, clientSecret: GITHUB_SECRET }),
+    Google
+  ],
 });

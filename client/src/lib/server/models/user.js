@@ -6,7 +6,7 @@ export async function getUserById(id) {
 }
 
 export async function getUsers() {
-	const { rows } = await pool.query(`SELECT * FROM users;`);
+	const { rows } = await pool.query(`SELECT * FROM users ORDER BY id;`);
 	console.log('hit $lib/server/models/user.js');
 	return rows;
 }

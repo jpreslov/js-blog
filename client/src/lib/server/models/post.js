@@ -4,6 +4,7 @@ export async function getPosts() {
 	const { rows } = await pool.query(`
     SELECT * FROM post
     JOIN users ON post.userid = users.id
+    ORDER BY post.id
   `);
   console.log(rows);
 	return rows;

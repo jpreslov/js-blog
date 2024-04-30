@@ -1,6 +1,6 @@
 <script>
 	import './app.css';
-	import { signIn, signOut } from '@auth/sveltekit/client';
+	import { signOut } from '@auth/sveltekit/client';
   import { goto } from '$app/navigation';
   import { onMount } from 'svelte';
 
@@ -30,9 +30,9 @@
 			{:else}
 				<button
 					class="mx-4 h-10 rounded-full bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
-					on:click={() => signIn('github')}
+					on:click={() => goto('/signin')}
 				>
-					Sign In
+					Sign in
 				</button>
 
 			{/if}

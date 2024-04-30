@@ -29,6 +29,8 @@ declare module '$env/static/private' {
 	export const AUTH_SECRET: string;
 	export const GITHUB_SECRET: string;
 	export const GITHUB_ID: string;
+	export const AUTH_GOOGLE_SECRET: string;
+	export const AUTH_GOOGLE_ID: string;
 	export const DB_NAME: string;
 	export const DB_HOST: string;
 	export const DB_USER: string;
@@ -60,7 +62,6 @@ declare module '$env/static/private' {
 	export const XDG_SESSION_TYPE: string;
 	export const SYSTEMD_EXEC_PID: string;
 	export const npm_package_scripts_build: string;
-	export const _: string;
 	export const npm_package_devDependencies_prettier: string;
 	export const npm_package_devDependencies_eslint_config_prettier: string;
 	export const npm_package_dependencies__auth_core: string;
@@ -77,8 +78,8 @@ declare module '$env/static/private' {
 	export const npm_package_devDependencies_prettier_plugin_svelte: string;
 	export const npm_package_dependencies_next_auth: string;
 	export const INIT_CWD: string;
-	export const npm_package_scripts_format: string;
 	export const STARSHIP_SESSION_KEY: string;
+	export const npm_package_scripts_format: string;
 	export const npm_package_scripts_preview: string;
 	export const ALACRITTY_SOCKET: string;
 	export const npm_lifecycle_script: string;
@@ -94,8 +95,8 @@ declare module '$env/static/private' {
 	export const ZSH_CUSTOM: string;
 	export const HYPRLAND_INSTANCE_SIGNATURE: string;
 	export const npm_package_dependencies_dotenv: string;
-	export const npm_package_dependencies__auth_sveltekit: string;
 	export const DISPLAY: string;
+	export const npm_package_dependencies__auth_sveltekit: string;
 	export const npm_lifecycle_event: string;
 	export const SHLVL: string;
 	export const MOZ_ENABLE_WAYLAND: string;
@@ -108,6 +109,7 @@ declare module '$env/static/private' {
 	export const npm_execpath: string;
 	export const npm_package_devDependencies_svelte: string;
 	export const XDG_RUNTIME_DIR: string;
+	export const NODE_PATH: string;
 	export const DEBUGINFOD_URLS: string;
 	export const npm_package_scripts_dev: string;
 	export const PATH: string;
@@ -163,6 +165,8 @@ declare module '$env/dynamic/private' {
 		AUTH_SECRET: string;
 		GITHUB_SECRET: string;
 		GITHUB_ID: string;
+		AUTH_GOOGLE_SECRET: string;
+		AUTH_GOOGLE_ID: string;
 		DB_NAME: string;
 		DB_HOST: string;
 		DB_USER: string;
@@ -194,7 +198,6 @@ declare module '$env/dynamic/private' {
 		XDG_SESSION_TYPE: string;
 		SYSTEMD_EXEC_PID: string;
 		npm_package_scripts_build: string;
-		_: string;
 		npm_package_devDependencies_prettier: string;
 		npm_package_devDependencies_eslint_config_prettier: string;
 		npm_package_dependencies__auth_core: string;
@@ -211,8 +214,8 @@ declare module '$env/dynamic/private' {
 		npm_package_devDependencies_prettier_plugin_svelte: string;
 		npm_package_dependencies_next_auth: string;
 		INIT_CWD: string;
-		npm_package_scripts_format: string;
 		STARSHIP_SESSION_KEY: string;
+		npm_package_scripts_format: string;
 		npm_package_scripts_preview: string;
 		ALACRITTY_SOCKET: string;
 		npm_lifecycle_script: string;
@@ -228,8 +231,8 @@ declare module '$env/dynamic/private' {
 		ZSH_CUSTOM: string;
 		HYPRLAND_INSTANCE_SIGNATURE: string;
 		npm_package_dependencies_dotenv: string;
-		npm_package_dependencies__auth_sveltekit: string;
 		DISPLAY: string;
+		npm_package_dependencies__auth_sveltekit: string;
 		npm_lifecycle_event: string;
 		SHLVL: string;
 		MOZ_ENABLE_WAYLAND: string;
@@ -242,6 +245,7 @@ declare module '$env/dynamic/private' {
 		npm_execpath: string;
 		npm_package_devDependencies_svelte: string;
 		XDG_RUNTIME_DIR: string;
+		NODE_PATH: string;
 		DEBUGINFOD_URLS: string;
 		npm_package_scripts_dev: string;
 		PATH: string;
