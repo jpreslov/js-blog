@@ -2,7 +2,7 @@ import { pool } from '$lib/server/db';
 
 export async function getPosts() {
 	const { rows } = await pool.query(`
-    SELECT * FROM post
+    SELECT post.id AS postid, post.content, post.createdat, users.* FROM post
     JOIN users ON post.userid = users.id
     ORDER BY post.id
   `);
