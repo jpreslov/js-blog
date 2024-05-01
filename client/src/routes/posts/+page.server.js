@@ -1,5 +1,4 @@
 import { getPosts } from "$lib/server/models/post";
-import { deletePost } from "$lib/server/models/post";
 
 export const load = async () => {
   let posts = await getPosts();
@@ -7,6 +6,4 @@ export const load = async () => {
   return { posts };
 };
 
-export const actions = {
-  deletePost
-}
+

@@ -17,12 +17,12 @@
 		<div class="flex-column h-100 my-2 flex">
 			{#if session}
 				<button
-					class="mx-4 h-10 rounded-full bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+					class="m-3 h-10 rounded-full bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
 					><a href="/compose"> New post </a></button
 				>
 				<img class="mx-4 h-14 rounded-full" src={session.user.image} alt="profile pic" />
 				<button
-					class="mx-4 h-10 rounded-full bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+					class="m-3 h-10 rounded-full bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
 					on:click={() => signOut()}
 				>
 					Sign Out
