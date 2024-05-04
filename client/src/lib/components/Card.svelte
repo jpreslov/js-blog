@@ -1,10 +1,13 @@
 <script>
+  import moment from 'moment';
 	export let session;
 	export let post;
 
   const handleDelete = (postid) => {
     console.log(postid);
   }
+
+  let currentDate = moment(post.createdat).fromNow();
 </script>
 
 <div class="m-4 flex-col justify-start rounded-md p-3 outline">
@@ -21,5 +24,5 @@
 		</div>
 	</div>
 	<p class="text-lg my-4">{post.content}</p>
-  <p class="text-xs">{post.createdat}</p>
+  <p class="text-xs">{currentDate}</p>
 </div>

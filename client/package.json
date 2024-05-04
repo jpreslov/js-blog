@@ -34,6 +34,7 @@
 		"@auth/sveltekit": "^0.14.2",
 		"argon2": "^0.40.1",
 		"dotenv": "^16.4.5",
+		"moment": "^2.30.1",
 		"next-auth": "5.0.0-beta.17",
 		"pg": "^8.11.5"
 	}
