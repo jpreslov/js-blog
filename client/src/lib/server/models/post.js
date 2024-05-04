@@ -7,7 +7,6 @@ export async function getPosts() {
     JOIN users ON post.userid = users.id
     ORDER BY post.id DESC
   `);
-    console.log(rows);
     return rows;
   } catch (err) {
     console.error('Error deleting post:', err);

@@ -4,7 +4,7 @@
 	export let post;
 
   const handleDelete = (postid) => {
-    console.log(postid);
+    // console.log(postid);
   }
 
   let currentDate = moment(post.createdat).fromNow();
