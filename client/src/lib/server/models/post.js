@@ -34,7 +34,7 @@ export async function deletePost(postId) {
     );
 
     if (data) {
-      console.log(data);
+      return data;
     }
   } catch (err) {
     console.error('Error deleting post:', err);
