@@ -16,6 +16,8 @@ export async function getPosts() {
 
 export async function createPost(userId, content) {
   try {
+    console.log('lib/server/models/post.js', userId, content);
+
     const post = await pool.query(
       'INSERT INTO post (userid, content) VALUES ($1, $2) RETURNING *;',
       [userId, content]

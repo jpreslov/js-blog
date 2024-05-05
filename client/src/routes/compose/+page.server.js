@@ -16,10 +16,10 @@ export const actions = {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: {
+        body: JSON.stringify({
           userid: user.id,
           content
-        }
+        })
       });
 
       return { post: JSON.stringify(post) };

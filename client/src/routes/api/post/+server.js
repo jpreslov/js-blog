@@ -17,7 +17,10 @@ export async function POST({ request }) {
   }
 
   let data = JSON.parse(request.body);
-  console.log('/api/post', data);
+
+  // having problems getting the request body here
+  console.log('/api/post', request.body);
+
   const { userid, content } = data;
   try {
     const post = await createPost(userid, content);

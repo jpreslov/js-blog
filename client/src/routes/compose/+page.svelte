@@ -6,7 +6,6 @@
 	export let data;
 
 	let showUploader;
-
 	$: showUploader = false;
 
 	const toggleUploader = (event) => {
