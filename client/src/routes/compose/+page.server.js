@@ -1,13 +1,14 @@
-import { getUserByUsername } from '$lib/server/models/user';
 import { createPost } from '$lib/server/models/post';
 
 export const actions = {
 	default: async ({ request, locals }) => {
 		const data = await request.formData();
+
+    console.log(data);
 		const content = data.get('content');
 		const session = await locals.auth();
-		const user = await getUserByUsername(session.user.name);
+		const user = await fetch(`/api/user/username/${session.user.name}`);
 
-		createPost(user.id, content);
+		if (content) createPost(user.id, content);
 	}
 };

@@ -1,12 +1,14 @@
 <script>
-	import { goto } from '$app/navigation';
 	import moment from 'moment';
+	import { createEventDispatcher } from 'svelte';
 	export let session;
 	export let post;
 
+  const dispatch = createEventDispatcher();
+
 	const handleDelete = async (postid) => {
 		try {
-			const response = await fetch(`/api/post/${postid}`, {
+			await fetch(`/api/post/${postid}`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -14,11 +16,9 @@
 				body: JSON.stringify({ postid })
 			});
 
-			if (response.ok) {
-				goto('/posts');
-			}
+      dispatch('postDeleted', postid);
 		} catch (err) {
-			console.log(err);
+			console.error('Failed to delete post', err);
 		}
 	};
 

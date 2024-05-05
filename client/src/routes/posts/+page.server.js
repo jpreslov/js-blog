@@ -1,8 +1,17 @@
-import { getPosts } from "$lib/server/models/post";
+export async function load ({ fetch }) {
+  try {
+    const response = await fetch(`/api/post`);
+    const posts = await response.json();
 
-export const load = async () => {
-  let posts = await getPosts();
-  return { posts };
+    if (response.ok) {
+      return {
+        posts: posts
+      };
+    } else {
+      throw new Error('Failed to fetch posts');
+    }
+  } catch (err) {
+    console.error('Failed to fetch posts', err);
+    throw err;
+  }
 };
-
-

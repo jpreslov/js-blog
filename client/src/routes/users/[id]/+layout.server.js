@@ -1,6 +1,6 @@
 import { getUserById } from "$lib/server/models/user";
 
 export const load = async ({ params }) => {
-  let user = await getUserById(params.id);
+  let user = await fetch(`/api/user/${params.id}`) 
   return { user };
 };
