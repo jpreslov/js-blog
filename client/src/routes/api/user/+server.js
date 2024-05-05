@@ -1,4 +1,3 @@
-import { json } from "@sveltejs/kit";
 import { getUsers } from "$lib/server/models/user";
 
 export async function GET() {

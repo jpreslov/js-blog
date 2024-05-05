@@ -18,20 +18,6 @@
 		onClientUploadComplete: async (res) => {
 			console.log(`onClientUploadComplete`, res);
 			alert('Upload completed');
-
-			const createdat = new Date();
-
-			try {
-				// const attachment = await fetch(`/api/attachment`, {
-				// 	method: 'POST',
-				// 	headers: {
-				// 		'Content-Type': 'application/json'
-				// 	},
-				// 	body: JSON.stringify({ userid, createdat })
-				// });
-			} catch (err) {
-				console.error(err);
-			}
 		},
 		onUploadError: (err) => {
 			alert(`Error: ${err}`);
@@ -56,7 +42,7 @@
 					bind:value={content}
 				/>
 				{#if showUploader}
-					<Uploader {uploader} />
+					<Uploader {uploader} name="attachment" />
 				{/if}
 				<div class="flex flex-row justify-between">
 					<button

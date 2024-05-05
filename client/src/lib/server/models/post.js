@@ -27,6 +27,21 @@ export async function createPost(userId, content) {
   }
 }
 
+export async function createAttachment(userId, url) {
+  const createdat = new Date();
+  try {
+    const attachment = await pool.query(
+      'INSERT INTO attachment (userId, createdat, link) VALUES ($1, $2, $3) RETURNING *;',
+      [userId, createdat, url]
+    );
+
+    return attachment;
+  } catch (err) {
+    console.error('Error inserting post:', err);
+    throw err;
+  }
+}
+
 export async function deletePost(postId) {
   try {
     const data = await pool.query(
