@@ -4,3 +4,5 @@ export const load = async () => {
   let posts = await getPosts();
   return { posts };
 };
+
+
