@@ -1,5 +1,4 @@
 import { deletePost } from '$lib/server/models/post';
-import { invalidate } from '$sveltejs/kit/hooks';
 
 export async function POST({ request }) {
   const data = await request.json();
