@@ -37,6 +37,8 @@ declare module '$env/static/private' {
 	export const DB_PASSWORD: string;
 	export const UPLOADTHING_SECRET: string;
 	export const UPLOADTHING_APP_ID: string;
+	export const SECRET_BASE_PROD: string;
+	export const SECRET_BASE_DEV: string;
 	export const SHELL: string;
 	export const npm_command: string;
 	export const npm_package_dependencies_unplugin_icons: string;
@@ -60,6 +62,7 @@ declare module '$env/static/private' {
 	export const TMUX_PLUGIN_MANAGER_PATH: string;
 	export const XCURSOR_SIZE: string;
 	export const XDG_SEAT: string;
+	export const ENV: string;
 	export const PWD: string;
 	export const npm_package_devDependencies_vite: string;
 	export const LOGNAME: string;
@@ -180,6 +183,8 @@ declare module '$env/dynamic/private' {
 		DB_PASSWORD: string;
 		UPLOADTHING_SECRET: string;
 		UPLOADTHING_APP_ID: string;
+		SECRET_BASE_PROD: string;
+		SECRET_BASE_DEV: string;
 		SHELL: string;
 		npm_command: string;
 		npm_package_dependencies_unplugin_icons: string;
@@ -203,6 +208,7 @@ declare module '$env/dynamic/private' {
 		TMUX_PLUGIN_MANAGER_PATH: string;
 		XCURSOR_SIZE: string;
 		XDG_SEAT: string;
+		ENV: string;
 		PWD: string;
 		npm_package_devDependencies_vite: string;
 		LOGNAME: string;

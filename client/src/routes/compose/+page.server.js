@@ -1,3 +1,7 @@
+import { ENV, SECRET_BASE_PROD, SECRET_BASE_DEV } from '$env/static/private';
+
+let baseUrl = ENV == 'prod' ? SECRET_BASE_PROD : SECRET_BASE_DEV;
+
 export const actions = {
   default: async ({ request, locals }) => {
     const data = await request.formData();
@@ -5,11 +9,11 @@ export const actions = {
     const session = await locals.auth();
     const username = encodeURIComponent(session.user.name);
 
-    const response = await fetch(`http://localhost:5173/api/user/username/${username}`);
+    const response = await fetch(`${baseUrl}/api/user/username/${username}`);
     const user = await response.json();
 
     if (content && user) {
-      let post = await fetch(`http://localhost:5173/api/post`, {
+      let post = await fetch(`${baseUrl}/api/post`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
