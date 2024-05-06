@@ -8,8 +8,6 @@ export const actions = {
     const response = await fetch(`http://localhost:5173/api/user/username/${username}`);
     const user = await response.json();
 
-    console.log('compose/+page.server.js', user, content);
-
     if (content && user) {
       let post = await fetch(`http://localhost:5173/api/post`, {
         method: 'POST',
@@ -18,7 +16,7 @@ export const actions = {
         },
         body: JSON.stringify({
           userid: user.id,
-          content
+          content: content
         })
       });
 

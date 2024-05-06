@@ -54,12 +54,10 @@ declare module '$env/static/private' {
 	export const npm_package_dependencies_moment: string;
 	export const npm_package_devDependencies_tailwindcss: string;
 	export const npm_package_dependencies_argon2: string;
-	export const SSH_AUTH_SOCK: string;
 	export const CREDENTIALS_DIRECTORY: string;
 	export const npm_package_private: string;
 	export const MEMORY_PRESSURE_WRITE: string;
 	export const TMUX_PLUGIN_MANAGER_PATH: string;
-	export const SSH_AGENT_PID: string;
 	export const XCURSOR_SIZE: string;
 	export const XDG_SEAT: string;
 	export const PWD: string;
@@ -199,12 +197,10 @@ declare module '$env/dynamic/private' {
 		npm_package_dependencies_moment: string;
 		npm_package_devDependencies_tailwindcss: string;
 		npm_package_dependencies_argon2: string;
-		SSH_AUTH_SOCK: string;
 		CREDENTIALS_DIRECTORY: string;
 		npm_package_private: string;
 		MEMORY_PRESSURE_WRITE: string;
 		TMUX_PLUGIN_MANAGER_PATH: string;
-		SSH_AGENT_PID: string;
 		XCURSOR_SIZE: string;
 		XDG_SEAT: string;
 		PWD: string;

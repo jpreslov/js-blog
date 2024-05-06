@@ -10,18 +10,14 @@ export async function GET() {
   }
 }
 
-export async function POST({ request }) {
-  if (!request.body) {
-    console.error("your shit's all fucked up");
+export async function POST(event) {
+  const req = await event.request.json();
+  const { userid, content } = req;
+
+  if (!userid || !content) {
     return new Response(JSON.stringify("No request body sent", { status: 500 }));
   }
 
-  let data = JSON.parse(request.body);
-
-  // having problems getting the request body here
-  console.log('/api/post', request.body);
-
-  const { userid, content } = data;
   try {
     const post = await createPost(userid, content);
     return new Response(JSON.stringify(post));
